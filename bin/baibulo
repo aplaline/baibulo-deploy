@@ -46,7 +46,7 @@ var operations = {
       // read list of files and upload them
       find.files(argv.dir, function(error, files) {
         var absolutePath = path.resolve(argv.dir)
-        deployFiles(files, argv.version, argv.url, log).then(resolve).catch(reject)
+        deployFiles(argv.dir, files, argv.version, argv.url, log).then(resolve).catch(reject)
       })
     })
   }
