@@ -4,7 +4,9 @@
   "description": "Deployment utility for Baibulo.NET",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "test": "",
+    "test:deploy": "bin/baibulo deploy --dir example/dist --version next --url http://localhost:8080/assets",
+    "test:release": "bin/baibulo deploy --dir example/dist --version release --url http://localhost:8080/assets"
   },
   "bin": {
     "baibulo": "./bin/baibulo"
