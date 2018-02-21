@@ -1,0 +1,70 @@
+#!/usr/bin/env node
+
+var path = require("path")
+var find = require("node-dir")
+var deployFiles = require('..')
+
+// read command-line parameters
+var argv = require('minimist')(process.argv, {
+  default: {
+    dir: './',
+    url: undefined,
+    version: "next",
+  }
+})
+
+// show help and exit
+if (argv.h || argv.help || argv._.length < 3) {
+  console.log([
+    'usage: content get-version|set-version|deploy [options]',
+    '',
+    '  --dir dir          Directory with content to upload [./]',
+    '  --url context      * Root URL to deploy to (for example http://server/assets)',
+    '  --version          * Version (required)',
+    '',
+    ' * - required option',
+  ].join('\n'))
+  process.exit(1)
+}
+
+// validate and process context
+if (!argv.url) {
+  console.log('ERROR: no url specified')
+  process.exit(2)
+}
+if (!argv.url.endsWith('/')) {
+  argv.url = argv.url + '/'
+}
+
+var operations = {
+  deploy: function() {
+    // dump progress to console
+    function log(file, contentType, result) {
+      console.log('OK ' + file + ':' + argv.version + ' (' + contentType + ') ' + result.join(' '))
+    }
+    return new Promise(function(resolve, reject) {
+      // read list of files and upload them
+      find.files(argv.dir, function(error, files) {
+        var absolutePath = path.resolve(argv.dir)
+        deployFiles(files, argv.version, argv.url, log).then(resolve).catch(reject)
+      })
+    })
+  }
+}
+
+// get the operation user requested (default: get)
+var operation = operations[argv._[2]]
+if (!operation) {
+  console.log('Invalid operation specified')
+  process.exit(2)
+}
+
+// execute operation
+operation()
+  .then(function() {
+    console.log('Operation completed.')
+  })
+  .catch(function(error) {
+    console.log(typeof error === 'string' ? 'ERROR: ' + error : JSON.stringify(error))
+    process.exit(3)
+  })
