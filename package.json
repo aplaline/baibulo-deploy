@@ -12,7 +12,7 @@
     "baibulo": "./bin/baibulo"
   },
   "author": "Matthias Hryniszak",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/aplaline/baibulo-net-deploy"
