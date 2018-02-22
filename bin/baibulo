@@ -18,7 +18,7 @@ var argv = require('minimist')(process.argv, {
 // show help and exit
 if (argv.h || argv.help || argv._.length < 3) {
   console.log([
-    'usage: content get-version|set-version|deploy [options]',
+    'usage: baibulo deploy [options]',
     '',
     '  --dir dir          Directory with content to upload [./]',
     '  --url context      * Root URL to deploy to (for example http://server/assets)',
