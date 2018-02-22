@@ -1,7 +1,7 @@
 {
-  "name": "baibulo-net-deploy",
+  "name": "baibulo-deploy",
   "version": "1.0.0",
-  "description": "Deployment utility for Baibulo.NET",
+  "description": "Deployment utility for Baibulo family",
   "main": "index.js",
   "scripts": {
     "test": "",
