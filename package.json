@@ -1,6 +1,6 @@
 {
   "name": "baibulo-deploy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Deployment utility for Baibulo family",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aplaline/baibulo-net-deploy"
+    "url": "https://github.com/aplaline/baibulo-deploy"
   },
   "dependencies": {
     "current-git-branch": "^1.0.1",
