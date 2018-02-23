@@ -7,4 +7,4 @@ else
   VERSION=$1
 fi
 
-../bin/baibulo deploy --dir /tmp/dist --url http://localhost:8080/assets --version $VERSION
+../bin/baibulo deploy --dir dist --url http://localhost:8080/assets --version $VERSION
