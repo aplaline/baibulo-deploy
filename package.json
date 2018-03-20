@@ -1,12 +1,12 @@
 {
   "name": "baibulo-deploy",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Deployment utility for Baibulo family",
   "main": "index.js",
   "scripts": {
     "test": "",
-    "test:deploy": "bin/baibulo deploy --dir example/dist --url http://localhost:8080/assets",
-    "test:release": "bin/baibulo deploy --dir example/dist --version release --url http://localhost:8080/assets"
+    "test:deploy": "node bin/baibulo deploy --dir example/dist --url http://localhost:8080/assets",
+    "test:release": "node bin/baibulo deploy --dir example/dist --version release --url http://localhost:8080/assets"
   },
   "bin": {
     "baibulo": "./bin/baibulo"
