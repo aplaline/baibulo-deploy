@@ -1,6 +1,6 @@
 {
   "name": "baibulo-deploy",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Deployment utility for Baibulo family",
   "main": "index.js",
   "scripts": {

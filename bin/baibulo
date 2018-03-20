@@ -12,6 +12,7 @@ var argv = require('minimist')(process.argv, {
     dir: './',
     url: undefined,
     version: undefined,
+    method: 'PUT',
   }
 })
 
@@ -22,6 +23,7 @@ if (argv.h || argv.help || argv._.length < 3) {
     '',
     '  --dir dir          Directory with content to upload [./]',
     '  --url context      * Root URL to deploy to (for example http://server/assets)',
+    '  --method method    Specify method to use to transfer the data (default: PUT)',
     '  --version          Version (defaults to git branch - master==release)',
     '',
     ' * - required option',
@@ -60,7 +62,7 @@ var operations = {
       })
     })
 
-    return listFiles.then(files => deployFiles(argv.dir, files, argv.version, argv.url, log))
+    return listFiles.then(files => deployFiles(argv.dir, files, argv.version, argv.url, argv.method, log))
   }
 }
 
