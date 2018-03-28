@@ -25,6 +25,11 @@ if (argv.h || argv.help || argv._.length < 3) {
     '  --url context      * Root URL to deploy to (for example http://server/assets)',
     '  --method method    Specify method to use to transfer the data (default: PUT)',
     '  --version          Version (defaults to git branch - master==release)',
+    '  --ignored          Coma-separated list of file names that you want to skip',
+    '                     This list initially contains Web.config so there is no need',
+    '                     to specify it if all you need is to exclude Web.config files.',
+    '                     However if you use this option it acts as an override and you',
+    '                     do need to include it too',
     '',
     ' * - required option',
   ].join('\n'))
@@ -48,6 +53,10 @@ if (!argv.version) {
   argv.version = argv.version.replace('/', '-')
 }
 
+if (!argv.ignored) {
+  argv.ignored = 'Web.config,web.config'
+}
+
 var operations = {
   deploy () {
     // dump progress to console
@@ -62,7 +71,7 @@ var operations = {
       })
     })
 
-    return listFiles.then(files => deployFiles(argv.dir, files, argv.version, argv.url, argv.method, log))
+    return listFiles.then(files => deployFiles(argv.dir, files, argv.version, argv.url, argv.method, argv.ignored.split(','), log))
   }
 }
 
