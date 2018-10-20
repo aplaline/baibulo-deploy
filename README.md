@@ -33,7 +33,13 @@ usage: baibulo deploy [options]
 
   --dir dir          Directory with content to upload [./]
   --url context      * Root URL to deploy to (for example http://server/assets)
+  --method method    Specify method to use to transfer the data (default: PUT)
   --version          Version (defaults to git branch - master==release)
+  --ignored          Coma-separated list of file names that you want to skip
+                     This list initially contains Web.config so there is no need
+                     to specify it if all you need is to exclude Web.config files.
+                     However if you use this option it acts as an override and you
+                     do need to include it too
 
  * - required option
 ```
