@@ -1,4 +1,4 @@
-# Baibulo deploy - a deployment utility for Baibulo/Baibulo.NET projects
+# Baibulo deploy - a deployment utility for Baibulo Node.js/Baibulo.NET/Baibulo Java projects
 
 The Baibulo project family is a set of utilities that allow projects to leverage parallel frontend
 deployments on one environment, saving costs and speeding up development process.
